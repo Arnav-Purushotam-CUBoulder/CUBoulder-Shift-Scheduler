@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CU Bookstore Shift Allocation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000000; /* CU Black */
+            margin: 0;
+            padding: 0;
+            color: #CFB87C; /* CU Gold */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #565A5C; /* CU Grey */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        h1 {
+            text-align: center;
+            color: #CFB87C; /* CU Gold */
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            color: #CFB87C; /* CU Gold */
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-section label {
+            font-size: 1rem;
+            color: #CFB87C; /* CU Gold */
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-section input[type="file"],
+        .form-section input[type="date"] {
+            font-size: 0.95rem;
+            padding: 10px;
+            border: 1px solid #CFB87C; /* CU Gold */
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #CFB87C; /* CU Gold */
+            color: #000000; /* Black text */
+        }
+
+        .form-section input:focus {
+            border-color: #CFB87C; /* Highlight focus with CU Gold */
+            outline: none;
+        }
+
+        .form-section button {
+            background-color: #CFB87C; /* CU Gold */
+            color: #000000; /* Black text */
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        }
+
+        .form-section button:hover {
+            background-color: #E4CFAB; /* Lighter Gold */
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(207, 184, 124, 0.5);
+        }
+
+        .section-divider {
+            border-top: 1px solid #CFB87C; /* CU Gold */
+            margin: 40px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #CFB87C; /* CU Gold */
+            font-size: 0.9rem;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .date-section {
+            text-align: center;
+        }
+
+        .date-section input {
+            font-size: 0.95rem;
+            padding: 10px;
+            border: 1px solid #CFB87C; /* CU Gold */
+            border-radius: 6px;
+            width: 60%;
+            max-width: 300px;
+            background-color: #CFB87C; /* CU Gold */
+            color: #000000; /* Black text */
+        }
+
+        .date-section button {
+            background-color: #CFB87C; /* CU Gold */
+            color: #000000; /* Black text */
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .date-section button:hover {
+            background-color: #E4CFAB; /* Lighter Gold */
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(207, 184, 124, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CU Bookstore Shift Allocation</h1>
+
+        <!-- Upload Files Section -->
+        <div>
+            <h2 class="section-title">Upload Files</h2>
+            <form action="/upload-files" method="POST" enctype="multipart/form-data">
+                <div class="form-section">
+                    <label for="employee_availability">Employee Availability Files:</label>
+                    <input type="file" name="daily_employee_files" id="employee_availability" multiple required>
+                </div>
+
+                <div class="form-section">
+                    <label for="shift_requirements">Shift Requirement Files:</label>
+                    <input type="file" name="daily_shift_files" id="shift_requirements" multiple required>
+                </div>
+
+                <div class="form-section">
+                    <label for="shift_date">Shift Date:</label>
+                    <input type="date" name="shift_date" id="shift_date" required>
+                </div>
+
+                <div class="form-section">
+                    <button type="submit">Upload Files</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Retrieve Files Section -->
+        <div>
+            <h2 class="section-title">Retrieve Files by Date</h2>
+            <form action="/retrieve-files" method="POST" class="date-section">
+                <label for="date_selection">Select Date:</label>
+                <input type="date" name="date" id="date_selection" required>
+                <button type="submit">Retrieve Files</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 CU Bookstore. All rights reserved.</p>
+    </div>
+</body>
+</html>
